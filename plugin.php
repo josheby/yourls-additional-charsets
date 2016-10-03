@@ -25,7 +25,12 @@ if( !defined( 'YOURLS_ABSPATH' ) ) die();
 
 function additional_charsets($charset) {
 
-	if ( defined('YOURLS_URL_CONVERT') && is_numeric(YOURLS_URL_CONVERT) ) {
+	if ( defined('YOURLS_URL_CONVERT') && is_string(YOURLS_URL_CONVERT) ) {
+
+		$charset = YOURLS_URL_CONVERT;
+
+	} elseif ( defined('YOURLS_URL_CONVERT') && is_numeric(YOURLS_URL_CONVERT) ) {
+
 		switch (YOURLS_URL_CONVERT) {
 			case 10:
 				// Numbers Only
@@ -60,8 +65,7 @@ function additional_charsets($charset) {
 				$charset = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_';
 				break;
 		}
-	} elseif ( defined('YOURLS_URL_CONVERT') && is_string(YOURLS_URL_CONVERT) ) {
-		$charset = YOURLS_URL_CONVERT;
+		
 	}
 
 	return $charset;
