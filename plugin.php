@@ -65,7 +65,7 @@ function additional_charsets($charset) {
 				$charset = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_';
 				break;
 		}
-		
+
 	}
 
 	return $charset;
